@@ -22,9 +22,9 @@ export default {
   },
   data () {
     return {
-      isRunning: false,
-      currentStep: 0,
-      numList: []
+      isRunning: false, // 번호 생성 중 여부 (번호 생성 중일 경우 start 버튼 비활성화)
+      currentStep: 0, // 번호 생성 Step (0~5)
+      numList: [] // 번호 목록 [6][2], 2자리 번호가 총 6개
     }
   },
   created () {
@@ -35,23 +35,23 @@ export default {
       this.numList = [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
     },
     async startLottoNum () {
-      this.isRunning = true
-      this.init()
+      this.isRunning = true // 번호 생성 여부 true
+      this.init() // 번호 초기화
 
       for (let i = 0; i < 6; i++) {
         this.currentStep = i
 
-        await this.animateNum()
+        await this.animateNum() // 잠시 멈춤 처리 (추후 필요 시 애니메이션 처리)
         console.log(`step:${i}`)
 
         while (true) {
-          this.setNum(i)
-          if (!this.checkDup(i)) break
+          this.setNum(i) // 현재 step 번호 생성
+          if (!this.checkDup(i)) break // 이전 step에 동일 번호가 없으면 중지
           console.log('dup')
         }
       }
 
-      this.isRunning = false
+      this.isRunning = false // 번호 생성 여부 false
     },
     animateNum () {
       return new Promise((resolve) => setTimeout(() => resolve(), 500))

@@ -1,9 +1,14 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  </nav> -->
+   <div class="about">
+    <h1>로또 번호 생성기</h1>
+    <br/>
+    <router-view/>
+  </div>
+
 </template>
 
 <style>
