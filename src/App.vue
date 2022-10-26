@@ -1,8 +1,8 @@
 <template>
-  <!-- <nav>
+  <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav> -->
+  </nav>
    <div class="about">
     <h1>로또 번호 생성기</h1>
     <br/>
@@ -10,6 +10,17 @@
   </div>
 
 </template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'HomeView',
+  mounted () {
+    this.$router.push('/')
+  }
+}
+</script>
 
 <style>
 #app {

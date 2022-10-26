@@ -14,7 +14,7 @@ async function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
     width: 600,
-    height: 900,
+    height: 950,
     webPreferences: {
 
       // Use pluginOptions.nodeIntegration, leave this alone
@@ -34,7 +34,10 @@ async function createWindow () {
   } else {
     createProtocol('app')
     // Load the index.html when not in development
+
     win.loadURL('app://./index.html')
+    // 메뉴 제거
+    win.setMenu(null)
   }
 }
 
